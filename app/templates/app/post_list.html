@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<p><a href="{% url 'app:create' %}">新規作成</a></p>
+    {% for post in post_list %}
+        <p>
+            {{ post.title }}
+            <a href="{% url 'app:update' post.pk %}">更新</a> 
+            <a href="{% url 'app:delete' post.pk %}">削除</a> 
+            <a href="{% url 'app:copy' post.pk %}">記事の複製</a> 
+        </p>
+    {% endfor %}
+{% endblock %}
